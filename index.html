@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,20 +79,22 @@
     </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">Skip to main content</a>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">GS</a>
+                <a href="#home" aria-label="Savan Gadhiya Portfolio Home">GS</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link" aria-label="Navigate to Home section">Home</a></li>
+                <li><a href="#about" class="nav-link" aria-label="Navigate to About section">About</a></li>
+                <li><a href="#skills" class="nav-link" aria-label="Navigate to Skills section">Skills</a></li>
+                <li><a href="#projects" class="nav-link" aria-label="Navigate to Projects section">Projects</a></li>
+                <li><a href="#contact" class="nav-link" aria-label="Navigate to Contact section">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Toggle mobile menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -101,6 +103,7 @@
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
@@ -110,8 +113,8 @@
                     <h2>BCA Student | Data Science Enthusiast | Aspiring Web Developer</h2>
                     <p>Savan Gadhiya (Website Developer) - Dedicated BCA student with a strong interest in Web development, web technologies, and data science. Proficient in Java, Python, and PHP, with expertise in machine learning, data analysis, and front-end development.</p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                        <a href="#contact" class="btn btn-primary" aria-label="Contact Savan Gadhiya">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary" aria-label="View Savan Gadhiya's projects">View Projects</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -379,16 +382,16 @@
                     <div class="social-links">
                         <h4>Connect with me</h4>
                         <div class="social-icons">
-                            <a href="https://github.com/savangadhiya1" target="_blank" class="social-icon">
+                            <a href="https://github.com/savangadhiya1" target="_blank" class="social-icon" aria-label="GitHub Profile">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.instagram.com/gadhiyasavan1/" target="_blank" class="social-icon">
+                            <a href="https://www.instagram.com/gadhiyasavan1/" target="_blank" class="social-icon" aria-label="Instagram Profile">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/savan-gadhiya-985b81378/?isSelfProfile=false" target="_blank" class="social-icon">
+                            <a href="https://www.linkedin.com/in/savan-gadhiya-985b81378/?isSelfProfile=false" target="_blank" class="social-icon" aria-label="LinkedIn Profile">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://www.facebook.com/gadhiyasavan1" target="_blank" class="social-icon">
+                            <a href="https://www.facebook.com/gadhiyasavan1" target="_blank" class="social-icon" aria-label="Facebook Profile">
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </div>
@@ -398,24 +401,29 @@
                     <h3>Send Message</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <label for="name" class="visually-hidden">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <label for="email" class="visually-hidden">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <label for="subject" class="visually-hidden">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <label for="message" class="visually-hidden">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" aria-label="Send message to Savan Gadhiya">Send Message</button>
                     </form>
-                    <div id="formMessage" class="form-message"></div>
+                    <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -439,16 +447,16 @@
                 <div class="footer-section">
                     <h4>Connect With Me</h4>
                     <div class="footer-social">
-                        <a href="https://github.com/savangadhiya1" target="_blank" class="footer-social-icon">
+                        <a href="https://github.com/savangadhiya1" target="_blank" class="footer-social-icon" aria-label="GitHub Profile">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.instagram.com/gadhiyasavan1/" target="_blank" class="footer-social-icon">
+                        <a href="https://www.instagram.com/gadhiyasavan1/" target="_blank" class="footer-social-icon" aria-label="Instagram Profile">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/savan-gadhiya-985b81378/?isSelfProfile=false" target="_blank" class="footer-social-icon">
+                        <a href="https://www.linkedin.com/in/savan-gadhiya-985b81378/?isSelfProfile=false" target="_blank" class="footer-social-icon" aria-label="LinkedIn Profile">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://www.facebook.com/gadhiyasavan1" target="_blank" class="footer-social-icon">
+                        <a href="https://www.facebook.com/gadhiyasavan1" target="_blank" class="footer-social-icon" aria-label="Facebook Profile">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </div>
