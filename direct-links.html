@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Portfolio Links - Gadhiya Savan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .links-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .links-header {
+            margin-bottom: 3rem;
+        }
+        
+        .links-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .links-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .link-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .link-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .link-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .link-description {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .link-action {
+            background: #ffd700;
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .link-action:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        
+        .primary-link {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), rgba(16, 185, 129, 0.3));
+            border-color: rgba(79, 70, 229, 0.5);
+        }
+        
+        .primary-link:hover {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.4), rgba(16, 185, 129, 0.4));
+        }
+        
+        .github-link {
+            background: linear-gradient(135deg, rgba(51, 51, 51, 0.3), rgba(51, 51, 51, 0.3));
+            border-color: rgba(51, 51, 51, 0.5);
+        }
+        
+        .github-link:hover {
+            background: linear-gradient(135deg, rgba(51, 51, 51, 0.4), rgba(51, 51, 51, 0.4));
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .instructions h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .instructions p {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .links-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .links-title {
+                font-size: 2.5rem;
+            }
+            
+            .link-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="links-container">
+        <div class="links-header">
+            <h1 class="links-title">🚀 My Portfolio Links</h1>
+            <p class="links-subtitle">Click any link below to open my professional portfolio</p>
+        </div>
+        
+        <div class="link-cards">
+            <!-- Local Portfolio Link -->
+            <a href="index.html" class="link-card primary-link">
+                <div class="link-icon">🌐</div>
+                <div class="link-title">Local Portfolio</div>
+                <div class="link-description">Open my complete portfolio with all projects, skills, and contact information</div>
+                <div class="link-action">
+                    <i class="fas fa-external-link-alt"></i> Open Portfolio
+                </div>
+            </a>
+            
+            <!-- GitHub Profile Link -->
+            <a href="https://github.com/savangadhiya1" target="_blank" class="link-card github-link">
+                <div class="link-icon">💻</div>
+                <div class="link-title">GitHub Profile</div>
+                <div class="link-description">View my repositories, projects, and source code on GitHub</div>
+                <div class="link-action">
+                    <i class="fab fa-github"></i> Visit GitHub
+                </div>
+            </a>
+            
+            <!-- Instagram Profile Link -->
+            <a href="https://www.instagram.com/gadhiyasavan1/" target="_blank" class="link-card">
+                <div class="link-icon">📸</div>
+                <div class="link-title">Instagram Profile</div>
+                <div class="link-description">Follow me on Instagram for updates and personal content</div>
+                <div class="link-action">
+                    <i class="fab fa-instagram"></i> Follow on Instagram
+                </div>
+            </a>
+            
+            <!-- Contact Direct Link -->
+            <a href="index.html#contact" class="link-card">
+                <div class="link-icon">📧</div>
+                <div class="link-title">Contact Me</div>
+                <div class="link-description">Send me a message directly through my portfolio contact form</div>
+                <div class="link-action">
+                    <i class="fas fa-envelope"></i> Send Message
+                </div>
+            </a>
+            
+            <!-- Projects Section Link -->
+            <a href="index.html#projects" class="link-card">
+                <div class="link-icon">🎯</div>
+                <div class="link-title">My Projects</div>
+                <div class="link-description">Explore my 9 projects including web development and data science work</div>
+                <div class="link-action">
+                    <i class="fas fa-code"></i> View Projects
+                </div>
+            </a>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 How to Use These Links</h3>
+            <p><strong>🌐 Local Portfolio:</strong> Click to open my complete portfolio directly from your device</p>
+            <p><strong>💻 GitHub Profile:</strong> Opens in new tab - shows all my repositories and source code</p>
+            <p><strong>📸 Instagram:</strong> Opens in new tab - follow me for personal updates</p>
+            <p><strong>📧 Contact Me:</strong> Direct link to contact form - messages go to my email</p>
+            <p><strong>🎯 My Projects:</strong> Jumps directly to projects section with filtering options</p>
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.link-card');
+            
+            cards.forEach((card, index) => {
+                // Add staggered animation
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Add click tracking
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const title = this.querySelector('.link-title').textContent;
+                    console.log(`User clicked on: ${title}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

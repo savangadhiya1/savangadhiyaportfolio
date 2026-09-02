@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /save_message.php
+Disallow: /view_messages.php
+Disallow: /database.sql
+
+Sitemap: https://savangadhiya1.github.io/sitemap.xml

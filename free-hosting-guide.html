@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Hosting Guide - Gadhiya Savan Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .guide-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .guide-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .hosting-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hosting-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .hosting-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: #ffd700;
+        }
+        
+        .hosting-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hosting-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .hosting-description {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .hosting-features {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hosting-features ul {
+            list-style: none;
+            opacity: 0.9;
+        }
+        
+        .hosting-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hosting-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .hosting-btn {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .hosting-btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        
+        .free-tag {
+            background: #10b981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .instructions h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .instructions ol {
+            text-align: left;
+            margin-left: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .guide-title {
+                font-size: 2rem;
+            }
+            
+            .hosting-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="guide-container">
+        <h1 class="guide-title">🌐 Free Hosting Guide</h1>
+        <p class="guide-subtitle">Deploy your portfolio online for free with these hosting options</p>
+        
+        <div class="hosting-options">
+            <!-- GitHub Pages -->
+            <a href="https://pages.github.com" target="_blank" class="hosting-card">
+                <div class="hosting-icon">📄</div>
+                <h3 class="hosting-title">GitHub Pages <span class="free-tag">FREE</span></h3>
+                <p class="hosting-description">Best for developers. Free hosting with custom domain, HTTPS, and unlimited bandwidth. Perfect for portfolio websites.</p>
+                <div class="hosting-features">
+                    <ul>
+                        <li>Free forever</li>
+                        <li>Custom domain: username.github.io</li>
+                        <li>HTTPS included</li>
+                        <li>Unlimited bandwidth</li>
+                        <li>Easy GitHub integration</li>
+                    </ul>
+                </div>
+                <div class="hosting-btn">
+                    <i class="fab fa-github"></i> Deploy to GitHub Pages
+                </div>
+            </a>
+            
+            <!-- Netlify -->
+            <a href="https://www.netlify.com" target="_blank" class="hosting-card">
+                <div class="hosting-icon">🚀</div>
+                <h3 class="hosting-title">Netlify <span class="free-tag">FREE</span></h3>
+                <p class="hosting-description">Drag-and-drop deployment. Free hosting with HTTPS, continuous deployment, and global CDN. Great for static sites.</p>
+                <div class="hosting-features">
+                    <ul>
+                        <li>Free tier available</li>
+                        <li>Automatic HTTPS</li>
+                        <li>Global CDN</li>
+                        <li>Continuous deployment</li>
+                        <li>Custom domains</li>
+                    </ul>
+                </div>
+                <div class="hosting-btn">
+                    <i class="fas fa-rocket"></i> Deploy to Netlify
+                </div>
+            </a>
+            
+            <!-- Vercel -->
+            <a href="https://vercel.com" target="_blank" class="hosting-card">
+                <div class="hosting-icon">▲</div>
+                <h3 class="hosting-title">Vercel <span class="free-tag">FREE</span></h3>
+                <p class="hosting-description">Modern hosting platform. Free hosting with edge computing, automatic HTTPS, and analytics. Perfect for Next.js and static sites.</p>
+                <div class="hosting-features">
+                    <ul>
+                        <li>Free tier available</li>
+                        <li>Edge computing</li>
+                        <li>Automatic HTTPS</li>
+                        <li>Real-time analytics</li>
+                        <li>Preview deployments</li>
+                    </ul>
+                </div>
+                <div class="hosting-btn">
+                    <i class="fas fa-server"></i> Deploy to Vercel
+                </div>
+            </a>
+            
+            <!-- Firebase Hosting -->
+            <a href="https://firebase.google.com" target="_blank" class="hosting-card">
+                <div class="hosting-icon">🔥</div>
+                <h3 class="hosting-title">Firebase Hosting <span class="free-tag">FREE</span></h3>
+                <p class="hosting-description">Google's hosting platform. Free hosting with HTTPS, global CDN, and easy integration. Good for static and dynamic sites.</p>
+                <div class="hosting-features">
+                    <ul>
+                        <li>Free tier available</li>
+                        <li>Google CDN</li>
+                        <li>Automatic HTTPS</li>
+                        <li>Easy CLI deployment</li>
+                        <li>Analytics included</li>
+                    </ul>
+                </div>
+                <div class="hosting-btn">
+                    <i class="fas fa-database"></i> Deploy to Firebase
+                </div>
+            </a>
+            
+            <!-- 000WebHost -->
+            <a href="https://www.000webhost.com" target="_blank" class="hosting-card">
+                <div class="hosting-icon">🌍</div>
+                <h3 class="hosting-title">000WebHost <span class="free-tag">FREE</span></h3>
+                <p class="hosting-description">Free hosting with ads. Good for beginners, includes website builder, PHP support, and MySQL databases.</p>
+                <div class="hosting-features">
+                    <ul>
+                        <li>Free hosting</li>
+                        <li>Website builder</li>
+                        <li>PHP & MySQL support</li>
+                        <li>Free subdomain</li>
+                        <li>24/7 support</li>
+                    </ul>
+                </div>
+                <div class="hosting-btn">
+                    <i class="fas fa-globe"></i> Start Free Hosting
+                </div>
+            </a>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Quick Deployment Steps</h3>
+            <ol>
+                <li><strong>Choose a Platform:</strong> Select GitHub Pages (recommended) or any free hosting platform</li>
+                <li><strong>Upload Your Files:</strong> Upload your portfolio files to the hosting platform</li>
+                <li><strong>Configure Settings:</strong> Set up custom domain and enable HTTPS if available</li>
+                <li><strong>Test Your Site:</strong> Verify everything works correctly</li>
+                <li><strong>Share Your Link:</strong> Distribute your new portfolio URL to friends and recruiters</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.hosting-card');
+            
+            cards.forEach((card, index) => {
+                // Add staggered animation
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

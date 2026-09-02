@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Portfolio - Gadhiya Savan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .share-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .share-header {
+            margin-bottom: 2rem;
+        }
+        
+        .share-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .share-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .share-links {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .share-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .share-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .share-btn.primary {
+            background: #ffd700;
+            color: #333;
+            border-color: #ffd700;
+        }
+        
+        .share-btn.primary:hover {
+            background: #ffed4e;
+        }
+        
+        .share-btn.local {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        
+        .share-btn.local:hover {
+            background: rgba(16, 185, 129, 0.3);
+        }
+        
+        .share-btn.github {
+            background: rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+        
+        .share-btn.github:hover {
+            background: rgba(79, 70, 229, 0.3);
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .instructions h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .instructions ol {
+            text-align: left;
+            margin-left: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .copy-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .copy-link {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin-bottom: 1rem;
+        }
+        
+        .copy-btn {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn.copied {
+            background: #10b981;
+            color: white;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .share-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .share-title {
+                font-size: 2rem;
+            }
+            
+            .share-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="share-container">
+        <div class="share-header">
+            <h1 class="share-title">Share My Portfolio</h1>
+            <p class="share-subtitle">Choose how you want to share my professional portfolio</p>
+        </div>
+        
+        <div class="share-links">
+            <a href="index.html" class="share-btn primary">
+                <i class="fas fa-home"></i> Open Portfolio
+            </a>
+            <a href="file:///d:/portfolio/index.html" class="share-btn local">
+                <i class="fas fa-laptop"></i> Open from D Drive
+            </a>
+            <a href="https://github.com/savangadhiya1" target="_blank" class="share-btn github">
+                <i class="fab fa-github"></i> View GitHub
+            </a>
+        </div>
+        
+        <div class="copy-section">
+            <h3>📤 Share These Links</h3>
+            <div class="copy-link" id="localLink">file:///d:/portfolio/index.html</div>
+            <button class="copy-btn" onclick="copyToClipboard('localLink')">
+                <i class="fas fa-copy"></i> Copy Local Link
+            </button>
+            
+            <div class="copy-link" id="githubLink">https://github.com/savangadhiya1</div>
+            <button class="copy-btn" onclick="copyToClipboard('githubLink')">
+                <i class="fab fa-github"></i> Copy GitHub Link
+            </button>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 How to Share with Friends</h3>
+            <ol>
+                <li><strong>Local Sharing:</strong> Copy the local link and send via WhatsApp, email, or messaging apps</li>
+                <li><strong>GitHub Sharing:</strong> Share the GitHub link for developers and recruiters</li>
+                <li><strong>Direct Access:</strong> Friends can open the local link if they have access to your D drive</li>
+                <li><strong>Web Upload:</strong> Upload the portfolio folder to any web hosting service</li>
+                <li><strong>GitHub Pages:</strong> Complete the GitHub setup to make it live online</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            // Create temporary textarea for copying
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // Show success feedback
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.classList.add('copied');
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+        
+        // Auto-detect if running from local or server
+        window.addEventListener('load', function() {
+            const currentPath = window.location.pathname;
+            const localLink = document.getElementById('localLink');
+            
+            if (currentPath.includes('localhost') || currentPath.includes('file://')) {
+                localLink.textContent = window.location.href;
+            }
+        });
+    </script>
+</body>
+</html>

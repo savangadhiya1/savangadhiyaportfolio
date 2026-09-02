@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Setup Guide - Gadhiya Savan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #24292e 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .setup-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .setup-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .step-number {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            color: #ffd700;
+        }
+        
+        .action-btn {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        
+        .status {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .success {
+            border-color: #10b981;
+            color: #10b981;
+        }
+        
+        .error {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+        
+        .warning {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>GitHub Setup Guide</h1>
+            <p class="subtitle">Step-by-step guide to make your GitHub repositories live</p>
+        </div>
+        
+        <div class="setup-card">
+            <h2 class="setup-title">🚀 Quick Setup for Live Demos</h2>
+            
+            <div class="step">
+                <div class="step-number">Step 1:</div>
+                <div class="step-title">Create GitHub Repository</div>
+                <div class="step-description">
+                    Go to GitHub.com and create repositories with these exact names:
+                    <div class="code-block">
+                        <code>blog-website</code><br>
+                        <code>library-management</code><br>
+                        <code>task-manager</code><br>
+                        <code>weather-app</code><br>
+                        <code>inventory-system</code><br>
+                        <code>sales-prediction</code><br>
+                        <code>customer-segmentation</code><br>
+                        <code>sentiment-analysis</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">Step 2:</div>
+                <div class="step-title">Enable GitHub Pages</div>
+                <div class="step-description">
+                    In each repository:
+                    <ol style="margin-left: 1.5rem; opacity: 0.9;">
+                        <li>Go to Settings → Pages</li>
+                        <li>Select "Deploy from a branch"</li>
+                        <li>Choose main branch</li>
+                        <li>Save and wait 2-3 minutes</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">Step 3:</div>
+                <div class="step-title">Upload Your Files</div>
+                <div class="step-description">
+                    Add your project files to each repository. For web projects, make sure to include:
+                    <div class="code-block">
+                        <code>index.html</code><br>
+                        <code>style.css</code><br>
+                        <code>script.js</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">Step 4:</div>
+                <div class="step-title">Test Your Live Demo</div>
+                <div class="step-description">
+                    Your live demo will be available at:
+                    <div class="code-block">
+                        <code>https://savangadhiya1.github.io/blog-website</code><br>
+                        <code>https://savangadhiya1.github.io/library-management</code><br>
+                        <code>https://savangadhiya1.github.io/task-manager</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="setup-card">
+            <h2 class="setup-title">📋 Repository Status Check</h2>
+            <div id="status-check" class="status warning">
+                <p>Checking your GitHub repositories...</p>
+            </div>
+        </div>
+        
+        <div class="setup-card">
+            <h2 class="setup-title">🔗 Quick Links</h2>
+            <div style="text-align: center;">
+                <a href="https://github.com/savangadhiya1" target="_blank" class="action-btn">
+                    <i class="fab fa-github"></i> Visit My GitHub
+                </a>
+                <a href="https://github.com/savangadhiya1/new" target="_blank" class="action-btn">
+                    <i class="fas fa-plus"></i> Create Repository
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check GitHub repositories status
+        async function checkGitHubRepos() {
+            const statusDiv = document.getElementById('status-check');
+            const repositories = [
+                'blog-website',
+                'library-management', 
+                'task-manager',
+                'weather-app',
+                'inventory-system',
+                'sales-prediction',
+                'customer-segmentation',
+                'sentiment-analysis'
+            ];
+            
+            try {
+                const response = await fetch('https://api.github.com/users/savangadhiya1/repos');
+                const repos = await response.json();
+                
+                const existingRepos = repos.map(repo => repo.name);
+                const missingRepos = repositories.filter(repo => !existingRepos.includes(repo));
+                
+                if (missingRepos.length === 0) {
+                    statusDiv.className = 'status success';
+                    statusDiv.innerHTML = `
+                        <p>✅ All repositories found!</p>
+                        <p>Your GitHub Pages should be working soon.</p>
+                    `;
+                } else {
+                    statusDiv.className = 'status warning';
+                    statusDiv.innerHTML = `
+                        <p>⚠️ ${missingRepos.length} repositories missing:</p>
+                        <div class="code-block">
+                            ${missingRepos.map(repo => `<code>${repo}</code>`).join('<br>')}
+                        </div>
+                        <p>Create these repositories to enable live demos.</p>
+                    `;
+                }
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `
+                    <p>❌ Could not check GitHub repositories</p>
+                    <p>Make sure your GitHub profile is public.</p>
+                `;
+            }
+        }
+        
+        // Check status when page loads
+        checkGitHubRepos();
+    </script>
+</body>
+</html>

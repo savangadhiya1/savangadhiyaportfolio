@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete GitHub Setup - Gadhiya Savan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #24292e 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .setup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .repo-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .repo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .repo-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .repo-description {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .repo-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .repo-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .repo-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .repo-btn.primary {
+            background: #ffd700;
+            color: #333;
+            border-color: #ffd700;
+        }
+        
+        .repo-btn.primary:hover {
+            background: #ffed4e;
+        }
+        
+        .steps-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 3rem;
+        }
+        
+        .steps-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #ffd700;
+            text-align: center;
+        }
+        
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .step-number {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            color: #ffd700;
+        }
+        
+        .status-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .status-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }
+        
+        .status-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .status-message {
+            margin-bottom: 2rem;
+        }
+        
+        .check-btn {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .check-btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .success {
+            color: #10b981;
+        }
+        
+        .error {
+            color: #ef4444;
+        }
+        
+        .warning {
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Complete GitHub Setup</h1>
+            <p class="subtitle">Create all repositories and enable GitHub Pages for live demos</p>
+        </div>
+        
+        <div class="setup-grid">
+            <div class="repo-card">
+                <h3 class="repo-title">📝 Blog Website</h3>
+                <p class="repo-description">Full-featured blog platform with content management system</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/blog-website" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">📚 Library Management</h3>
+                <p class="repo-description">Complete library management system for academic institutions</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/library-management" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">📋 Task Manager</h3>
+                <p class="repo-description">Modern task management application with Kanban board</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/task-manager" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">🌤️ Weather App</h3>
+                <p class="repo-description">Python weather application with real-time data</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/weather-app" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">📦 Inventory System</h3>
+                <p class="repo-description">Inventory management system for small businesses</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/inventory-system" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">📈 Sales Prediction</h3>
+                <p class="repo-description">Machine learning model for sales forecasting</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/sales-prediction" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">👥 Customer Segmentation</h3>
+                <p class="repo-description">Customer segmentation analysis with K-means clustering</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/customer-segmentation" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="repo-card">
+                <h3 class="repo-title">💬 Sentiment Analysis</h3>
+                <p class="repo-description">NLP sentiment analysis tool for customer reviews</p>
+                <div class="repo-links">
+                    <a href="https://github.com/savangadhiya1/new" target="_blank" class="repo-btn primary">
+                        <i class="fas fa-plus"></i> Create Repo
+                    </a>
+                    <a href="https://github.com/savangadhiya1/sentiment-analysis" target="_blank" class="repo-btn">
+                        <i class="fab fa-github"></i> View Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="steps-section">
+            <h2 class="steps-title">🚀 Quick Setup Steps</h2>
+            
+            <div class="step">
+                <div class="step-number">Step 1:</div>
+                <div class="step-title">Create All Repositories</div>
+                <div class="step-description">
+                    Click the "Create Repo" buttons above to create all 8 repositories with the exact names:
+                    <div class="code-block">
+                        <code>blog-website</code><br>
+                        <code>library-management</code><br>
+                        <code>task-manager</code><br>
+                        <code>weather-app</code><br>
+                        <code>inventory-system</code><br>
+                        <code>sales-prediction</code><br>
+                        <code>customer-segmentation</code><br>
+                        <code>sentiment-analysis</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">Step 2:</div>
+                <div class="step-title">Enable GitHub Pages</div>
+                <div class="step-description">
+                    For each repository:
+                    <ol style="margin-left: 1.5rem; opacity: 0.9;">
+                        <li>Go to repository Settings → Pages</li>
+                        <li>Select "Deploy from a branch"</li>
+                        <li>Choose "main" branch and "/ (root)" folder</li>
+                        <li>Click "Save" and wait 2-3 minutes</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">Step 3:</div>
+                <div class="step-title">Upload Demo Files</div>
+                <div class="step-description">
+                    For web projects (blog-website, library-management, task-manager), upload the demo files from:
+                    <div class="code-block">
+                        <code>demo-repos/blog-website/index.html</code><br>
+                        <code>demo-repos/library-management/index.html</code><br>
+                        <code>demo-repos/task-manager/index.html</code>
+                    </div>
+                    For other projects, upload your actual project files.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">Step 4:</div>
+                <div class="step-title">Test Live Demos</div>
+                <div class="step-description">
+                    Your live demos will be available at:
+                    <div class="code-block">
+                        <code>https://savangadhiya1.github.io/blog-website</code><br>
+                        <code>https://savangadhiya1.github.io/library-management</code><br>
+                        <code>https://savangadhiya1.github.io/task-manager</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-section">
+            <div class="status-card">
+                <h3 class="status-title">Repository Status Check</h3>
+                <div id="status-message" class="status-message">
+                    <p>Click below to check your GitHub repositories status</p>
+                </div>
+                <button class="check-btn" onclick="checkRepositories()">
+                    <i class="fas fa-check"></i> Check Status
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        async function checkRepositories() {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.innerHTML = '<p>Checking repositories...</p>';
+            
+            const repositories = [
+                'blog-website',
+                'library-management', 
+                'task-manager',
+                'weather-app',
+                'inventory-system',
+                'sales-prediction',
+                'customer-segmentation',
+                'sentiment-analysis'
+            ];
+            
+            try {
+                const response = await fetch('https://api.github.com/users/savangadhiya1/repos');
+                if (!response.ok) {
+                    throw new Error('GitHub API request failed');
+                }
+                
+                const repos = await response.json();
+                const existingRepos = repos.map(repo => repo.name);
+                const missingRepos = repositories.filter(repo => !existingRepos.includes(repo));
+                
+                if (missingRepos.length === 0) {
+                    statusDiv.innerHTML = `
+                        <p class="success">✅ All 8 repositories found!</p>
+                        <p>Your GitHub Pages should be working soon.</p>
+                        <p>Next: Enable GitHub Pages for each repository.</p>
+                    `;
+                } else {
+                    statusDiv.innerHTML = `
+                        <p class="warning">⚠️ ${missingRepos.length} repositories missing:</p>
+                        <div class="code-block">
+                            ${missingRepos.map(repo => `<code>${repo}</code>`).join('<br>')}
+                        </div>
+                        <p>Click the "Create Repo" buttons above to create them.</p>
+                    `;
+                }
+            } catch (error) {
+                statusDiv.innerHTML = `
+                    <p class="error">❌ Could not check GitHub repositories</p>
+                    <p>Make sure your GitHub profile is public and try again.</p>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
