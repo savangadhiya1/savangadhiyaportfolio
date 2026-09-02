@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://savangadhiya1.github.io/">
     <meta property="og:title" content="Savan Gadhiya Portfolio | Gadhiya Savan - BCA Student | Web Developer | Data Science">
     <meta property="og:description" content="Savan Gadhiya (Gadhiya Savan) - BCA Student and Web Developer from Rajkot, Gujarat. Expert in Java, Python, PHP, Data Science, and Machine Learning. Explore projects and skills.">
-    <meta property="og:image" content="https://savangadhiya1.github.io/profile.png">
+    <meta property="og:image" content="https://savangadhiya1.github.io/profile.webp">
     <meta property="og:site_name" content="Savan Gadhiya Portfolio">
     <meta property="og:locale" content="en_US">
     
@@ -28,9 +28,10 @@
     <meta property="twitter:url" content="https://savangadhiya1.github.io/">
     <meta property="twitter:title" content="Savan Gadhiya Portfolio | Gadhiya Savan - BCA Student | Web Developer">
     <meta property="twitter:description" content="Savan Gadhiya (Gadhiya Savan) - BCA Student and Web Developer from Rajkot, Gujarat. Expert in Java, Python, PHP, Data Science, and Machine Learning.">
-    <meta property="twitter:image" content="https://savangadhiya1.github.io/profile.png">
+    <meta property="twitter:image" content="https://savangadhiya1.github.io/profile.webp">
     <meta property="twitter:site" content="@gadhiyasavan1">
-    <link rel="stylesheet" href="portfolio.css">
+    <link rel="preload" href="portfolio.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="portfolio.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -112,7 +113,10 @@
                 <div class="hero-image">
                     <div class="profile-card">
                         <div class="profile-img">
-                            <img src="profile.png" alt="Gadhiya Savan Profile">
+                            <picture>
+                                <source srcset="profile.webp" type="image/webp">
+                                <img src="profile.png" alt="Gadhiya Savan Profile" width="300" height="300" loading="lazy">
+                            </picture>
                         </div>
                         <div class="profile-info">
                             <h3>Gadhiya Savan</h3>
@@ -456,6 +460,6 @@
         </div>
     </footer>
 
-    <script src="portfolio.js"></script>
+    <script src="portfolio.js" defer></script>
 </body>
 </html>
