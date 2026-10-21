@@ -1,0 +1,4 @@
+# Netlify redirect rules:
+# If volt/index.html exists it will be served directly.
+# If volt is missing on deployment, rewrite to volt-shop.html with status 200 (No 404!)
+/volt/*  /volt-shop.html  200
