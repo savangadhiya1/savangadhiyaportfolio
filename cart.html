@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volt | Shopping Cart Matrix</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .cart-container { max-width: 1100px; margin: 40px auto 20px auto; padding: 20px; font-family: sans-serif; color: #fff; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        @media (max-width: 768px) { .cart-container { grid-template-columns: 1fr; } }
+        .cart-items-box { background: #121212; padding: 25px; border-radius: 8px; border: 1px solid #222; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; padding: 16px 0; }
+        .cart-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 6px; background: #1c1c1c; }
+        .item-info { flex: 2; margin-left: 20px; }
+        .item-info h4 { margin: 0 0 5px 0; color: #fff; font-size: 16px; }
+        .item-info p { margin: 0; color: #ff4747; font-weight: bold; font-size: 15px; }
+        .qty-form { display: flex; align-items: center; gap: 6px; }
+        .qty-btn { width: 28px; height: 28px; background: #262733; color: #fff; border: 1px solid #444; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 15px; }
+        .qty-input { width: 44px; padding: 5px; background: #222; border: 1px solid #333; color: #fff; text-align: center; border-radius: 4px; }
+        .remove-btn { color: #ff4747; text-decoration: none; margin-left: 15px; font-size: 14px; cursor: pointer; background: none; border: none; }
+        .remove-btn:hover { text-decoration: underline; }
+        .summary-box { background: #1c1c1c; padding: 25px; border-radius: 8px; border: 1px solid #333; height: fit-content; }
+        .summary-box h3 { border-bottom: 1px solid #333; padding-bottom: 12px; color: #ff4747; margin-top: 0; }
+        .summary-row { display: flex; justify-content: space-between; margin: 15px 0; color: #bbb; font-size: 15px; }
+        .total-row { display: flex; justify-content: space-between; margin: 20px 0 10px 0; font-size: 19px; font-weight: bold; color: #fff; border-top: 1px dashed #444; padding-top: 15px; }
+        .coupon-box { display: flex; gap: 8px; margin: 20px 0 10px 0; }
+        .coupon-box input { flex: 1; padding: 10px; background: #121212; border: 1px solid #333; color: white; border-radius: 4px; font-size: 14px; text-transform: uppercase; }
+        .coupon-box button { padding: 10px 16px; background: #333; color: white; border: none; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .coupon-box button:hover { background: #444; }
+        .checkout-btn { width: 100%; padding: 14px; background: #ff4747; color: white; border: none; border-radius: 4px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s; margin-top: 15px; }
+        .checkout-btn:hover { background: #e03e3e; }
+        .alert-info { background: #222; color: #ff4747; border: 1px solid #333; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 14px; }
+        .empty-cart-state { text-align: center; padding: 50px 20px; color: #888; }
+        .order-history-card { background: #121212; border: 1px solid #222; border-radius: 8px; padding: 16px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="top-offer-bar">
+    <p>⚡ FLASH SALE: Premium Volt Audio gear up to 60% off! ⚡</p>
+</div>
+
+<header class="site-header">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">volt</a>
+        <nav class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <div class="dropdown">
+                <span class="drop-btn">Categories ▾</span>
+                <div class="dropdown-content">
+                    <a href="index.html?category=1">Smartwatches</a>
+                    <a href="index.html?category=2">Headphones</a>
+                    <a href="index.html?category=3">Neckbands</a>
+                    <a href="index.html?category=4">Earbuds</a>
+                    <a href="index.html?category=5">Speakers</a>
+                </div>
+            </div>
+            <a href="gifting_store.html">🎁 Gifting Store</a>
+            <div class="dropdown">
+                <span class="drop-btn">More ▾</span>
+                <div class="dropdown-content">
+                    <a href="#about-us">ℹ️ About Us</a>
+                    <a href="#contact-us">📞 Contact Us</a>
+                    <a href="#location">📍 Location</a>
+                    <a href="admin_login.html">⚡ Admin Portal</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="search-box">
+            <form class="volt-search-form">
+                <input type="text" name="search" placeholder='Search "Speakers", "Headphones"...'>
+            </form>
+        </div>
+
+        <div class="action-items">
+            <div class="dropdown profile-dropdown">
+                <span class="drop-btn">👤 Profile</span>
+                <div class="dropdown-content right-align">
+                    <div id="user-status-slot">
+                        <a href="login.html" class="btn" style="margin-right: 10px; background: #ff4747; color: #fff;">👤 User Login</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-user-actions">
+                <a href="cart.html" class="cart-anchor-box" title="View Storage Matrix Cart">
+                    <img class="cart-icon-img" src="assets/images/cart-icon.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1170/1170678.png'" alt="Cart Grid View">
+                    <span class="cart-count-badge" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="cart-container">
+    <!-- Left Column: Cart Items -->
+    <div class="cart-items-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+            <h2 style="margin: 0; color: #fff;">Shopping Matrix Cart</h2>
+            <a href="index.html" style="color:#ff4747; text-decoration:none; font-size: 14px;">← Continue Shopping</a>
+        </div>
+
+        <div id="couponAlert" class="alert-info" style="display: none;"></div>
+
+        <div id="cartItemsList">
+            <!-- Rendered dynamically -->
+        </div>
+    </div>
+
+    <!-- Right Column: Order Summary -->
+    <div class="summary-box">
+        <h3>Order Summary</h3>
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">₹0</span>
+        </div>
+        <div class="summary-row" id="discountRow" style="display: none; color: #10b981;">
+            <span>Discount (<span id="discountPercent">0</span>%)</span>
+            <span id="summaryDiscount">-₹0</span>
+        </div>
+        <div class="summary-row">
+            <span>Shipping</span>
+            <span style="color:#4CAF50; font-weight:bold;">FREE</span>
+        </div>
+        
+        <div class="coupon-box">
+            <input type="text" id="couponInput" placeholder="Promo code (e.g. VOLT20)">
+            <button type="button" id="applyCouponBtn">Apply</button>
+        </div>
+        <small style="color:#888; display:block; margin-bottom: 10px;">Try: <strong>VOLT20</strong> (20% off) or <strong>VOLT50</strong> (50% off)</small>
+
+        <div class="total-row">
+            <span>Total Amount</span>
+            <span id="summaryTotal" style="color:#ff4747;">₹0</span>
+        </div>
+
+        <button type="button" class="checkout-btn" id="checkoutBtn">⚡ SECURE CHECKOUT</button>
+    </div>
+</div>
+
+<!-- Purchase History Matrix Section -->
+<div style="max-width: 1100px; margin: 40px auto; padding: 20px; font-family: sans-serif; color: #fff;">
+    <h3 style="border-bottom: 1px solid #333; padding-bottom: 10px; color: #fff;">📦 Purchase History Matrix</h3>
+    <div id="orderHistoryList" style="margin-top: 15px;">
+        <!-- Rendered dynamically -->
+    </div>
+</div>
+
+<section class="volt-info-section">
+    <div class="volt-info-container">
+        <div class="info-box" id="about-us">
+            <h3>⚡ ABOUT VOLT</h3>
+            <p>Volt is a next-generation audio and smart gadgets brand. We deliver premium quality headphones, wireless earbuds, smartwatches, and speakers built with futuristic design elements and exceptional sound engineering.</p>
+        </div>
+        <div class="info-box" id="contact-us">
+            <h3>📞 CONTACT HUB</h3>
+            <p>Reach out to our support matrix for any inquiries or assistance:</p>
+            <ul>
+                <li><strong>📧 Email:</strong> support@voltgear.com</li>
+                <li><strong>📞 Hotline:</strong> +91 98765 43210</li>
+            </ul>
+        </div>
+        <div class="info-box" id="location">
+            <h3>📍 LIVE MATRIX LOCATION</h3>
+            <p>Our primary R&D and distribution hub in Gujarat, India.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer-bottom">
+    <div class="container">
+        <p>&copy; 2026 VOLT Gear India. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="assets/js/db.js"></script>
+<script src="assets/js/common.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderCart();
+        renderOrderHistory();
+
+        // Check if user came from gifting store with coupon parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const autoCoupon = urlParams.get('coupon');
+        if (autoCoupon) {
+            document.getElementById('couponInput').value = autoCoupon;
+            applyCouponAction(autoCoupon);
+        }
+
+        // Apply coupon button
+        document.getElementById('applyCouponBtn').addEventListener('click', function () {
+            const code = document.getElementById('couponInput').value.trim();
+            applyCouponAction(code);
+        });
+
+        // Checkout button
+        document.getElementById('checkoutBtn').addEventListener('click', function () {
+            const cartDetails = window.VoltDB.getCartDetails();
+            if (cartDetails.items.length === 0) {
+                alert("Your cart is empty! Add products first.");
+                return;
+            }
+
+            const res = window.VoltDB.checkout();
+            if (res.success) {
+                alert(`🎉 ORDER PLACED SUCCESSFULLY!\n\nOrder ID: #VOLT-${res.orderId}\nTotal Amount: ₹${res.total.toLocaleString()}\nEstimated Delivery: 2-3 Business Days.\n\nThank you for choosing VOLT.`);
+                renderCart();
+                renderOrderHistory();
+            } else {
+                alert(res.msg);
+            }
+        });
+    });
+
+    function applyCouponAction(code) {
+        if (!code) return;
+        const res = window.VoltDB.applyCoupon(code);
+        const alertBox = document.getElementById('couponAlert');
+        alertBox.textContent = res.msg;
+        alertBox.style.display = 'block';
+        renderCart();
+    }
+
+    function renderCart() {
+        const details = window.VoltDB.getCartDetails();
+        const itemsList = document.getElementById('cartItemsList');
+        const subtotalEl = document.getElementById('summarySubtotal');
+        const discountRow = document.getElementById('discountRow');
+        const discountPercentEl = document.getElementById('discountPercent');
+        const discountEl = document.getElementById('summaryDiscount');
+        const totalEl = document.getElementById('summaryTotal');
+
+        if (details.items.length === 0) {
+            itemsList.innerHTML = `
+                <div class="empty-cart-state">
+                    <p style="font-size: 20px; margin-bottom: 15px;">🛒 Your shopping cart is empty.</p>
+                    <a href="index.html" style="display: inline-block; padding: 12px 28px; background: #ff4747; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Browse Hardware Gear</a>
+                </div>
+            `;
+            subtotalEl.textContent = '₹0';
+            discountRow.style.display = 'none';
+            totalEl.textContent = '₹0';
+            return;
+        }
+
+        itemsList.innerHTML = details.items.map(item => {
+            const imgSrc = (item.image.startsWith('http')) 
+                ? item.image 
+                : `assets/images/${item.image}`;
+            
+            return `
+                <div class="cart-item">
+                    <img src="${imgSrc}" onerror="this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500'" alt="${item.name}">
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <p>₹${Number(item.price).toLocaleString()}</p>
+                    </div>
+                    <div class="qty-form">
+                        <button class="qty-btn" onclick="changeQty(${item.id}, ${item.quantity - 1})">-</button>
+                        <input type="number" class="qty-input" value="${item.quantity}" min="1" max="99" onchange="changeQty(${item.id}, this.value)">
+                        <button class="qty-btn" onclick="changeQty(${item.id}, ${item.quantity + 1})">+</button>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${item.id})">✕ Remove</button>
+                </div>
+            `;
+        }).join('');
+
+        subtotalEl.textContent = `₹${details.subtotal.toLocaleString()}`;
+
+        if (details.discountPct > 0) {
+            discountRow.style.display = 'flex';
+            discountPercentEl.textContent = details.discountPct;
+            discountEl.textContent = `-₹${details.discountAmount.toLocaleString()}`;
+        } else {
+            discountRow.style.display = 'none';
+        }
+
+        totalEl.textContent = `₹${details.total.toLocaleString()}`;
+    }
+
+    function changeQty(productId, qty) {
+        window.VoltDB.updateCartQty(productId, parseInt(qty));
+        renderCart();
+    }
+
+    function removeItem(productId) {
+        window.VoltDB.removeFromCart(productId);
+        renderCart();
+    }
+
+    function renderOrderHistory() {
+        const historyList = document.getElementById('orderHistoryList');
+        const orders = window.VoltDB.getOrderHistory();
+
+        if (orders.length === 0) {
+            historyList.innerHTML = `<p style="color: #bbb; font-size: 14px;">No past orders recorded yet.</p>`;
+            return;
+        }
+
+        historyList.innerHTML = orders.map(o => {
+            const itemsHtml = (o.items || []).map(it => {
+                const img = it.image ? (it.image.startsWith('http') ? it.image : `assets/images/${it.image}`) : 'assets/images/volt-headphone-futuristic.png';
+                return `
+                    <div style="display:flex; align-items:center; gap: 15px; margin-top: 10px;">
+                        <img src="${img}" style="width: 45px; height: 45px; object-fit: cover; border-radius: 4px;">
+                        <span style="color:#fff; font-size: 14px;">${it.name || 'Volt Audio Gear'} (Qty: ${it.quantity || 1})</span>
+                        <span style="margin-left: auto; color:#ff4747; font-weight: bold; font-size: 14px;">₹${Number(it.price || 0).toLocaleString()}</span>
+                    </div>
+                `;
+            }).join('');
+
+            return `
+                <div class="order-history-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #222; padding-bottom: 8px;">
+                        <div>
+                            <strong style="color: #ff4747;">Order #VOLT-${o.id}</strong>
+                            <span style="color: #777; font-size: 13px; margin-left: 12px;">📅 ${o.order_date || 'Recent'}</span>
+                        </div>
+                        <div style="color: #10b981; font-weight: bold;">
+                            Total: ₹${Number(o.total_amount).toLocaleString()}
+                        </div>
+                    </div>
+                    ${itemsHtml}
+                </div>
+            `;
+        }).join('');
+    }
+</script>
+</body>
+</html>
