@@ -289,9 +289,9 @@ Systems   : MySQL Database, Git/GitHub, Linux CLI, Windows`,
         projects: () => `🚀 Flagship Production Project:
 • Volt Shop — Full-Stack E-Commerce Web Platform & Admin Suite
   - Tech Stack : PHP, MySQL, JavaScript ES6, AI Chatbot
-  - Highlights : Storefront, Cart, Product Reviews, 47KB Comprehensive Admin Suite
-  - Live View  : http://localhost/volt/ (Live Web Storefront & Back-Office)
-  - Repository : https://github.com/savangadhiya1/e-commerce-website`,
+  - Highlights : Storefront, Cart, Product Reviews, Comprehensive Admin Suite
+  - Live View  : volt/index.html (Storefront & Admin Suite)
+  - Repository : https://github.com/savangadhiya1/savangadhiyaportfolio`,
 
         bio: () => `Savan Gadhiya (Gadhiya Savan)
 BCA Student at Atmiya University, Rajkot (2024 - 2026).
