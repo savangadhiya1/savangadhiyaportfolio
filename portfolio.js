@@ -290,7 +290,7 @@ Systems   : MySQL Database, Git/GitHub, Linux CLI, Windows`,
 • Volt Shop — Full-Stack E-Commerce Web Platform & Admin Suite
   - Tech Stack : PHP, MySQL, JavaScript ES6, AI Chatbot
   - Highlights : Storefront, Cart, Product Reviews, Comprehensive Admin Suite
-  - Live View  : volt/index.html (Storefront & Admin Suite)
+  - Live View  : http://localhost:8080/volt/index.html (Storefront & Admin Suite)
   - Repository : https://github.com/savangadhiya1/savangadhiyaportfolio`,
 
         bio: () => `Savan Gadhiya (Gadhiya Savan)
