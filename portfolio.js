@@ -10,6 +10,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initSecurityShield();
     init3DBackgroundCanvas();
     init3DCardTilt();
     initTypewriter();
@@ -497,3 +498,106 @@ function initContactForm() {
         );
     }
 }
+
+/* ==========================================================================
+   8. CLIENT-SIDE INTELLECTUAL PROPERTY & ANTI-INSPECTION SECURITY SHIELD
+   ========================================================================== */
+function initSecurityShield() {
+    // 1. Disable Right-Click Context Menu with security notification
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        showSecurityNotice('🔒 Protected: Source code inspection is restricted to protect intellectual property.');
+        return false;
+    });
+
+    // 2. Disable Keyboard Inspection Shortcuts (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S)
+    document.addEventListener('keydown', (e) => {
+        // F12 key
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            showSecurityNotice('🔒 Developer Tools inspection is disabled.');
+            return false;
+        }
+
+        const isCtrlOrMeta = e.ctrlKey || e.metaKey;
+
+        // Ctrl/Cmd + Shift + I/J/C
+        if (isCtrlOrMeta && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
+            e.preventDefault();
+            showSecurityNotice('🔒 Developer Console inspection is restricted.');
+            return false;
+        }
+
+        // Ctrl/Cmd + U (View Source)
+        if (isCtrlOrMeta && (e.key === 'u' || e.key === 'U')) {
+            e.preventDefault();
+            showSecurityNotice('🔒 View Page Source is disabled.');
+            return false;
+        }
+
+        // Ctrl/Cmd + S (Save Page)
+        if (isCtrlOrMeta && (e.key === 's' || e.key === 'S')) {
+            e.preventDefault();
+            showSecurityNotice('🔒 Page saving is disabled.');
+            return false;
+        }
+    });
+
+    // 3. Disable image dragging
+    document.querySelectorAll('img').forEach(img => {
+        img.setAttribute('draggable', 'false');
+        img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+
+    // 4. Stylized Console Security Warning
+    try {
+        console.clear();
+        console.log(
+            '%c🛑 STOP! %cThis portfolio and all accompanying source code are the proprietary intellectual property of Savan Gadhiya.\nUnauthorized copying, reverse engineering, scraping, or redistribution is strictly prohibited.',
+            'color: #EF4444; font-size: 24px; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);',
+            'color: #06B6D4; font-size: 14px; font-weight: 600;'
+        );
+    } catch (_) {}
+
+    // Security Notice Toast Helper
+    let toastTimeout;
+    function showSecurityNotice(msg) {
+        let toast = document.getElementById('security-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'security-toast';
+            toast.style.cssText = [
+                'position: fixed',
+                'bottom: 24px',
+                'left: 50%',
+                'transform: translateX(-50%) translateY(20px)',
+                'background: rgba(15, 23, 42, 0.95)',
+                'color: #F87171',
+                'border: 1px solid rgba(239, 68, 68, 0.4)',
+                'padding: 12px 24px',
+                'border-radius: 100px',
+                'font-size: 0.88rem',
+                'font-weight: 700',
+                'z-index: 999999',
+                'box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7)',
+                'backdrop-filter: blur(10px)',
+                'opacity: 0',
+                'pointer-events: none',
+                'transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                'font-family: system-ui, sans-serif'
+            ].join(';');
+            document.body.appendChild(toast);
+        }
+
+        toast.textContent = msg;
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(20px)';
+        }, 2500);
+    }
+}
+
