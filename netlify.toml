@@ -16,6 +16,13 @@
 
 [[redirects]]
   from = "/volt/*"
-  to = "/volt-shop.html"
-  status = 200
+  to = "https://chimerical-shortbread-339d3f.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/volt"
+  to = "https://chimerical-shortbread-339d3f.netlify.app/"
+  status = 301
+  force = true
 
